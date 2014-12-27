@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: HTML lang attribute per post
+Plugin Name: Set HTML lang attribute per post
 Version: 0.0.1
 Author: Nils Norman Haukås
 Description: This plugin allows you to specify a html lang attribute per post to override the site-wide default.
