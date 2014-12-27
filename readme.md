@@ -1,4 +1,4 @@
-## The "problem" we're trying to solve
+## Problem
 
 Wordpress allows us to specify site-wide language defaults like so:
 
