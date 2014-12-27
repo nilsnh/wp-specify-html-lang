@@ -8,9 +8,11 @@ The problem comes about if you have blog posts in various languages. Personally 
 
 ## Solution
 
+The solution is to add more specific html `lang` attributes when needed. 
+
 `<article id="" class="" lang="vi">` This specifies that the post is in Vietnamese.
 
-The solution is to add more specific html `lang` attributes when needed. This plugin enables a meta box when editing posts where you may specify the post's language.
+This plugin enables a meta box when editing posts where you may specify the post's language.
 
 ## Contributing
 
