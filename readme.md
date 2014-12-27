@@ -1,4 +1,4 @@
-## Problem
+## The problem this plugin solves
 
 Wordpress allows us to specify site-wide language defaults like so:
 
