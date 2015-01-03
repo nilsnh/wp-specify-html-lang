@@ -4,6 +4,7 @@ Plugin Name: Set HTML lang attribute per post
 Version: 0.0.1
 Author: Nils Norman Haukås
 Description: This plugin allows you to specify a html lang attribute per post to override the site-wide default.
+Domain Path: /languages/
 License: GPL2
 */
 
@@ -14,10 +15,10 @@ if(!class_exists('Html_Lang'))
 
     public function __construct()
     {
+      add_action('plugins_loaded', array($this, 'loadLanguageFile'));
       add_filter( 'post_class', array($this, 'htmlLang') );
       add_action( 'add_meta_boxes', array($this, 'add_my_meta_boxes') );
       add_action( 'save_post', array($this, 'save_htmllang_meta') );
-      register_uninstall_hook( __FILE__, array( $this, 'on_uninstall' ) );
     }
 
     public function htmllang( $classes ) {
@@ -29,8 +30,12 @@ if(!class_exists('Html_Lang'))
       return $classes;
     }
 
+    public function loadLanguageFile() {
+      load_plugin_textdomain('htmllang', false, 'htmllang/languages' );
+    }
+
     public function add_my_meta_boxes() {
-      add_meta_box('htmllang-meta-box', 'Specify html=lang attribute', array($this, 'show_my_meta_box'), 'post', 'normal', 'high');
+      add_meta_box('htmllang-meta-box', __( 'Specify html=lang attribute', 'htmllang' ), array($this, 'show_my_meta_box'), 'post', 'normal', 'high');
     }
 
     public function show_my_meta_box($post) {
@@ -39,16 +44,16 @@ if(!class_exists('Html_Lang'))
       ?>
 
       <p>
-        <label for="html-lang" class="htmllang-row-title"><?php _e( 'Select post lang attribute', 'htmllang-textdomain' )?></label>
-        <select name="html-lang" id="html-lang">
+        <select style="float:left; margin: 5px 10px 0 0;" name="html-lang" id="html-lang">
           <?php echo $this->createSelectHtml()?>
         </select>
+        <label for="html-lang" class="htmllang-row-title"><?php _e( "Select a language from the drop down menu to specify a language attribute on this post. To remove the post's language attribute select 'default'.", 'htmllang' )?></label>
       </p>
 
       <?php
     }
 
-    public function on_uninstall() {
+    public static function on_uninstall() {
       delete_metadata( 'post', null, 'html-lang', null, true );
     }
 
@@ -73,7 +78,7 @@ if(!class_exists('Html_Lang'))
       }
     }
 
-    protected function createSelectHtml( $array ) {
+    protected function createSelectHtml() {
       $result = "";
       $htmllang_stored_meta = get_post_meta( get_the_ID(), 'html-lang', true );
 
@@ -176,5 +181,5 @@ if(!class_exists('Html_Lang'))
 } // END if(!class_exists('Html_Lang'))
 
 $Html_Lang = new Html_Lang();
-
+register_uninstall_hook(    __FILE__, array( 'Html_Lang', 'on_uninstall' ) );
 ?>

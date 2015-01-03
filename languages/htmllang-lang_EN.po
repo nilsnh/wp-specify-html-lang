@@ -1,0 +1,39 @@
+# Copyright (C) 2015 Set HTML lang attribute per post
+# This file is distributed under the same license as the Set HTML lang attribute per post package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Set HTML lang attribute per post 0.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/htmllang\n"
+"POT-Creation-Date: 2015-01-03 20:42:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-01-03 23:59+0100\n"
+"Last-Translator: Nils Norman Haukås <nils@thunki.no>\n"
+"Language-Team: Nils Norman Haukås <nils@thunki.com>\n"
+"Language: English\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: htmllang.php:39
+msgid "Specify html=lang attribute"
+msgstr "Specify html=lang attribute"
+
+#: htmllang.php:51
+msgid ""
+"Select a language from the drop down menu to specify a language attribute on "
+"this post. To remove the post's language attribute select 'default'."
+msgstr ""
+"Select a language from the drop down menu to specify a language attribute on "
+"this post. To remove the post's language attribute select 'default'."
+
+#. Plugin Name of the plugin/theme
+msgid "Set HTML lang attribute per post"
+msgstr "Set HTML lang attribute per post"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin allows you to specify a html lang attribute per post to override "
+"the site-wide default."
+msgstr ""
+"This plugin allows you to specify a html lang attribute per post to override "
+"the site-wide default."
