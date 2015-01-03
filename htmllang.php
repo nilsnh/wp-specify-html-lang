@@ -41,7 +41,7 @@ if(!class_exists('Html_Lang'))
       <p>
         <label for="html-lang" class="htmllang-row-title"><?php _e( 'Select post lang attribute', 'htmllang-textdomain' )?></label>
         <select name="html-lang" id="html-lang">
-        <?php echo $this->createSelectHtml()?>
+          <?php echo $this->createSelectHtml()?>
         </select>
       </p>
 
@@ -65,21 +65,36 @@ if(!class_exists('Html_Lang'))
 
       // Checks for input and sanitizes/saves if needed
       if( isset( $_POST[ 'html-lang' ] ) ) {
-        update_post_meta( $post_id, 'html-lang', sanitize_text_field( $_POST[ 'html-lang' ] ) );
+        if ($_POST[ 'html-lang' ] != "") {
+          update_post_meta( $post_id, 'html-lang', sanitize_text_field( $_POST[ 'html-lang' ] ) );
+        } else {
+          delete_post_meta( $post_id, 'html-lang', null);
+        }
       }
-
     }
 
     protected function createSelectHtml( $array ) {
       $result = "";
       $htmllang_stored_meta = get_post_meta( get_the_ID(), 'html-lang', true );
 
+      ?>
+      <option value="" <?php $this->isDefaultLang( $htmllang_stored_meta ); ?>> Default site-wide language </option>
+      <?php
+
       foreach ($this->localeList() as $locale => $langName) {
-          ?>
-          <option value="<?php echo $locale;?>" <?php if ( isset ( $htmllang_stored_meta ) ) selected( $htmllang_stored_meta, $locale ); ?>>
-            <?php echo $langName . " (" . $locale . ") "; ?>
-          </option>
-          <?php
+        ?>
+        <option value="<?php echo $locale;?>" <?php if ( isset ( $htmllang_stored_meta ) ) selected( $htmllang_stored_meta, $locale ); ?>>
+          <?php echo $langName . " (" . $locale . ") "; ?>
+        </option>
+        <?php
+      }
+    }
+
+    protected function isDefaultLang( $htmllang_stored_meta ) {
+      if ( isset ( $htmllang_stored_meta ) ) {
+        selected( $htmllang_stored_meta, "" );
+      } else if (!isset ( $htmllang_stored_meta )) {
+        ?> selected='selected' <?php
       }
     }
 
