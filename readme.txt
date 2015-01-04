@@ -1,5 +1,6 @@
 === Set HTML lang attribute per post ===
 Contributors: Nils N. Haukås
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AX8X2THZR8M5U
 Tags: html, language, lang
 Requires at least: 3.0.1
 Tested up to: 4.1
@@ -9,9 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This wordpress plugin adds a meta box for specifying html lang="" language per post.
 
-=== Description ===
+== Description ==
 
-== The problem this plugin solves ==
+==The problem this plugin solves==
 
 Wordpress allows us to specify site-wide language defaults like so:
 
@@ -19,7 +20,7 @@ Wordpress allows us to specify site-wide language defaults like so:
 
 The problem comes about if you have blog posts in various languages. Personally I write posts in either English or Norwegian. And since English is set as the site-wide language posts that are in Norwegian end up looking kinda weird due to weirdly placed `-` (hyphenations).
 
-== Solution
+== Solution ==
 
 The solution is to add more specific html `lang` attributes when needed.
 
@@ -59,7 +60,7 @@ Wondering about something?
 
 == Screenshots ==
 
-1.
+1. screenshot-1.png
 
 == Changelog ==
 
