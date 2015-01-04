@@ -98,8 +98,6 @@ if(!class_exists('Html_Lang'))
     protected function isDefaultLang( $htmllang_stored_meta ) {
       if ( isset ( $htmllang_stored_meta ) ) {
         selected( $htmllang_stored_meta, "" );
-      } else if (!isset ( $htmllang_stored_meta )) {
-        ?> selected='selected' <?php
       }
     }
 
