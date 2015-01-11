@@ -44,7 +44,7 @@ if(!class_exists('Html_Lang'))
       ?>
 
       <p>
-        <select style="float:left; margin: 5px 10px 0 0;" name="html-lang" id="html-lang">
+        <select name="html-lang" id="html-lang">
           <?php echo $this->createSelectHtml()?>
         </select>
         <label for="html-lang" class="htmllang-row-title"><?php _e( "Select a language from the drop down menu to specify a language attribute on this post. To remove the post's language attribute select 'default'.", 'htmllang' )?></label>
